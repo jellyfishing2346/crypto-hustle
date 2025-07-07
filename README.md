@@ -14,27 +14,31 @@ A React app that displays a searchable list of blockchain coins, their prices, a
 
 ### Prerequisites
 
-- Node.js and npm installed
+- [Node.js](https://nodejs.org/) and npm installed
 
 ### Setup
 
-1. Clone this repository.
-2. Install dependencies:
+1. **Clone this repository:**
+    ```sh
+    git clone <your-repo-url>
+    cd crypto-hustle
     ```
+2. **Install dependencies:**
+    ```sh
     npm install
     ```
-3. Create a `.env` file in the project root and add your CryptoCompare API key:
-    ```
+3. **Create a `.env` file in the project root and add your CryptoCompare API key:**
+    ```env
     VITE_APP_API_KEY="your_api_key_here"
     ```
-   Get a free API key from [CryptoCompare](https://www.cryptocompare.com/).
+    > Get a free API key from [CryptoCompare](https://www.cryptocompare.com/).
 
-4. Start the development server:
-    ```
+4. **Start the development server:**
+    ```sh
     npm run dev
     ```
 
-5. Open [http://localhost:5173](http://localhost:5173) in your browser.
+5. **Open** [http://localhost:5173](http://localhost:5173) **in your browser.**
 
 ## Project Structure
 
@@ -54,6 +58,11 @@ src/
 - If you see a rate limit error for news, wait for your API quota to reset or upgrade your CryptoCompare account.
 - You can customize the styles in `App.css`.
 
-## License
+## Demo
 
-MIT
+- **Demo Recording:** [Watch on Loom](https://www.loom.com/share/d24eab3a21214821bc2c86ce0ddebc16?sid=87a4ef2d-2b5a-43f9-886c-ae86b65bf455)
+- **Live Demo:** [View Deployment](https://cozy-brigadeiros-5ebb5f.netlify.app)
+
+---
+
+Feel free to further personalize or expand as needed!
