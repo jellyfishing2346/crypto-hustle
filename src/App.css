@@ -43,13 +43,17 @@ body, html, #root {
   padding: 10px 15px;
   border: 1px solid #333; /* Border color for the search input */
   border-radius: 5px;
-  background-color: #1a1a1a; /* Background for search input */
+  background-color:black; /* Background for search input */
   color: #fff;
   font-size: 1rem;
 }
 
 .search-input::placeholder {
   color: #aaa;
+}
+
+.input::placeholder {
+  color: white; /* Placeholder text color */
 }
 
 /* --- Crypto List (UL) --- */
@@ -118,8 +122,25 @@ body, html, #root {
      but for a fixed two-column layout, this is sufficient. */
 }
 
+input[type="text"] {
+  background: #fff;
+  color: #232323;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 1.1rem;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
+input[type="text"]::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
 .whole-page {
-  margin-left: 400px; /* Match your .sidenav width */
+  margin-left:400px; /* Match your .sidenav width */
   padding: 50px;
   color: #fff;
   background: #000;
@@ -129,6 +150,10 @@ body, html, #root {
   align-items: center !important;
   justify-content: flex-start;
   text-align: center;
+}
+
+.sidenav {
+  width: 340px;
 }
 
 h3 {
