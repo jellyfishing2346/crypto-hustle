@@ -1,162 +1,185 @@
-:root {
-  font-family:system-ui,Avenir,Helvetica,Arial,sans-serif;
-  line-height:1.5;
-  font-weight:400;
-  color-scheme:light dark;
-  color:#ffffffde;
-  background-color:#242424;
-  font-synthesis:none;
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale
+/* App.css */
+
+/* --- Global Styles --- */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #000; /* Demo's dark background */
+  color: #fff; /* Demo's light text */
+  font-family: sans-serif; /* Or a specific font if you can identify it from the demo */
 }
-a {
-  font-weight:500;
-  color:#646cff;
-  text-decoration:inherit
+
+/* --- Layout for App Component --- */
+.app-layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr; /* Adjust as needed. SideNav on left, CryptoList on right */
+  min-height: 100vh; /* Ensures the layout takes full viewport height */
 }
-a:hover {
-  color:#535bf2
+
+.main-content {
+  padding: 20px;
+  background-color: #000; /* Ensure this main content area matches body background */
 }
-body {
-  margin:0;
-  display:flex;
-  place-items:center;
-  min-width:320px;
-  min-height:100vh
+
+/* --- Header Section (H1) --- */
+.main-content h1 { /* Target the H1 inside main-content */
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 2.5em; /* Adjust font size to match demo */
+  /* You might need a specific font-weight here too */
 }
-h1 {
-  font-size:3.2em;
-  line-height:1.1
+
+/* --- Search Bar Section --- */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-button {
-  border-radius:8px;
-  border:1px solid transparent;
-  padding:.6em 1.2em;
-  font-size:1em;
-  font-weight:500;
-  font-family:inherit;
-  background-color:#1a1a1a;
-  cursor:pointer;
-  transition:border-color .25s
+
+.search-input {
+  width: 80%; /* Adjust width as needed */
+  padding: 10px 15px;
+  border: 1px solid #333; /* Border color for the search input */
+  border-radius: 5px;
+  background-color: #1a1a1a; /* Background for search input */
+  color: #fff;
+  font-size: 1rem;
 }
-button:hover {
-  border-color:#646cff
+
+.search-input::placeholder {
+  color: #aaa;
 }
-button:focus,
-button:focus-visible {
-  outline:4px auto -webkit-focus-ring-color
+
+/* --- Crypto List (UL) --- */
+.crypto-list {
+  list-style: none; /* Remove default list bullets */
+  padding: 0;
+  margin: 0;
 }
-@media (prefers-color-scheme: light) {
-  :root {
-    color:#213547;
-    background-color:#fff
-  }
-  a:hover {
-    color:#747bff
-  }
-  button {
-    background-color:#f9f9f9
-  }
+
+/* --- CoinInfo Component Styling (Each List Item) --- */
+.coin-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1a1a1a; /* Background for each crypto item */
+  border: 1px solid #333; /* Subtle border for each item */
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px; /* Space between items */
+  transition: background-color 0.2s ease; /* Optional: smooth hover effect */
 }
-body {
-  margin:0;
-  background:#000;
-  font-family:sans-serif
+
+.coin-info-item:hover {
+    background-color: #2a2a2a; /* Slightly lighter on hover */
 }
-.whole-page {
-  position:relative;
-  margin-left:25%;
-  width:75vw;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  min-height:100vh;
-  padding:50px;
-  color:#fff;
-  background:#000;
-  text-align:center
+
+.coin-info-item img {
+  width: 30px; /* Icon size */
+  height: 30px;
+  margin-right: 15px;
+  border-radius: 50%; /* If images are circular in demo */
+  object-fit: contain;
 }
-input {
-  margin:20px 0;
-  padding:10px;
-  font-size:1rem;
-  width:300px;
-  max-width:80%;
-  text-align:center
+
+.coin-details {
+  flex-grow: 1; /* Allows name/symbol to take available space */
+  display: flex;
+  flex-direction: column;
 }
-ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  width:100%;
-  max-width:700px
+
+.coin-name {
+  font-weight: bold;
+  color: #fff;
 }
-li.main-list {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  padding:20px;
-  border-bottom:2px solid white;
-  font-size:1.2rem;
-  width:100%;
-  box-sizing:border-box
+
+.coin-symbol {
+  font-size: 0.8em;
+  color: #aaa; /* Lighter grey for symbol */
 }
-.coin-left {
-  display:flex;
-  align-items:center;
-  gap:10px
-}
+
 .coin-price {
-  min-width:100px;
-  text-align:left
+  font-weight: bold;
+  color: white; /* A vibrant green like the demo, adjust HEX if needed */
+  min-width: 120px; /* Ensure space for price, adjust as needed */
+  text-align: right;
+  font-size: 1.1em; /* Adjust price font size */
 }
-.icons {
-  width:30px;
-  height:30px;
-  object-fit:contain
+
+/* --- SideNav Component Styling --- */
+.side-nav {
+  width: 260px;
+  background-color: #1a1a1a; /* Background for the side navigation */
+  padding: 20px;
+  border-right: 1px solid #333; /* Separator from main content */
+  /* You might need `position: sticky` and `top: 0` if it's supposed to scroll with content,
+     but for a fixed two-column layout, this is sufficient. */
 }
-.tab {
-  display:inline-block;
-  margin-left:75px
+
+.whole-page {
+  margin-left: 400px; /* Match your .sidenav width */
+  padding: 50px;
+  color: #fff;
+  background: #000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: flex-start;
+  text-align: center;
 }
-.sidenav {
-  height:100%;
-  width:25%;
-  position:fixed;
-  top:0;
-  left:0;
-  bottom:0;
-  background-color:#232323;
-  padding:15px 10px;
-  overflow-y:scroll;
-  display:flex;
-  flex-direction:column;
-  align-items:center
+
+h3 {
+  text-align: center;;
 }
-.side-list {
-  padding:0;
-  margin:0;
-  text-align:left
+
+.side-nav h2 { /* Heading for "Crypto News" */
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  text-align: center;
 }
-.news-article {
-  margin:18px 0;
-  padding:12px 10px;
-  background:#181818;
-  border-radius:8px;
-  box-shadow:0 2px 8px #00000014;
-  transition:background .2s
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.news-article a {
-  color:#fff;
-  text-decoration:none;
-  font-weight:500
+
+.news-article-item {
+  background-color: #2a2a2a; /* Background for each news article */
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
-.news-article:hover {
-  background:#232323
+
+.news-article-item h3 {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+  color: #00ffff; /* A light blue for news titles, adjust HEX */
+}
+
+.news-article-item p {
+  font-size: 0.9em;
+  color: #ccc;
+  line-height: 1.4;
+}
+
+/* --- Responsive Adjustments (Optional but Recommended) --- */
+@media (max-width: 768px) {
+  .app-layout {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+  .side-nav {
+    border-right: none;
+    border-bottom: 1px solid #333; /* Add a bottom border when stacked */
+  }
+  .main-content h1 {
+    font-size: 2em;
+  }
 }

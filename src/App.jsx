@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import CoinInfo from "./components/CoinInfo";
 import SideNav from "./components/SideNav";
-import CryptoNews from "./components/CryptoNews";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
@@ -37,49 +36,49 @@ function App() {
 
   return (
     <>
-    <SideNav />
-    <div className="whole-page">
-      <h1>My Crypto List</h1>
-      <input
-        type="text"
-        placeholder="Search..."
-        onChange={(inputString) => searchItems(inputString.target.value)}
-      />
-      <ul>
-        {list &&
-          (searchInput.length > 0
-            ? filteredResults
-                .filter(
-                  (coin) =>
-                    list.Data[coin].IsTrading &&
-                    list.Data[coin].Algorithm !== "N/A" &&
-                    list.Data[coin].ProofType !== "N/A"
-                )
-                .map((coin) => (
-                  <CoinInfo
-                    key={coin}
-                    image={list.Data[coin].ImageUrl}
-                    name={list.Data[coin].FullName}
-                    symbol={list.Data[coin].Symbol}
-                  />
-                ))
-            : Object.entries(list.Data)
-                .filter(
-                  ([, coinData]) =>
-                    coinData.IsTrading &&
-                    coinData.Algorithm !== "N/A" &&
-                    coinData.ProofType !== "N/A"
-                )
-                .map(([coin, coinData]) => (
-                  <CoinInfo
-                    key={coin}
-                    image={coinData.ImageUrl}
-                    name={coinData.FullName}
-                    symbol={coinData.Symbol}
-                  />
-                )))}
-      </ul>
-    </div>
+      <SideNav />
+      <div className="whole-page">
+        <h1>My Crypto List</h1>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(inputString) => searchItems(inputString.target.value)}
+        />
+        <ul>
+          {list &&
+            (searchInput.length > 0
+              ? filteredResults
+                  .filter(
+                    (coin) =>
+                      list.Data[coin].IsTrading &&
+                      list.Data[coin].Algorithm !== "N/A" &&
+                      list.Data[coin].ProofType !== "N/A"
+                  )
+                  .map((coin) => (
+                    <CoinInfo
+                      key={coin}
+                      image={list.Data[coin].ImageUrl}
+                      name={list.Data[coin].FullName}
+                      symbol={list.Data[coin].Symbol}
+                    />
+                  ))
+              : Object.entries(list.Data)
+                  .filter(
+                    ([, coinData]) =>
+                      coinData.IsTrading &&
+                      coinData.Algorithm !== "N/A" &&
+                      coinData.ProofType !== "N/A"
+                  )
+                  .map(([coin, coinData]) => (
+                    <CoinInfo
+                      key={coin}
+                      image={coinData.ImageUrl}
+                      name={coinData.FullName}
+                      symbol={coinData.Symbol}
+                    />
+                  )))}
+        </ul>
+      </div>
     </>
   );
 }

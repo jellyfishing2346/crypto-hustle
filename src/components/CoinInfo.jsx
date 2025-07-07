@@ -16,19 +16,21 @@ function CoinInfo({ image, name, symbol }) {
   }, [symbol]);
 
   return (
-    <div>
-      {price && price.USD ? (
-        <li className="main-list" key={symbol}>
+    <li className="main-list" key={symbol}>
+      <span className="coin-left">
+        {image && (
           <img
             className="icons"
             src={`https://www.cryptocompare.com${image}`}
             alt={`Small icon for ${name} crypto coin`}
           />
-          {name} <span className="tab"></span>
-          {`$${price.USD} USD`}
-        </li>
-      ) : null}
-    </div>
+        )}
+        {name} ({symbol})
+      </span>
+      <span className="coin-price">
+        {price && price.USD ? `$${price.USD} USD` : ""}
+      </span>
+    </li>
   );
 }
 
